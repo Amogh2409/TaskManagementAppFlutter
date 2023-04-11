@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tms/modals/Task_modal.dart';
 import 'package:tms/widgets/constant.dart';
+import 'package:tms/widgets/tasks.dart';
 
 import '../widgets/premium.dart';
 import 'profilepage.dart';
@@ -44,7 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: kwhite,
             selectedItemColor: Colors.blueAccent,
             unselectedItemColor: Colors.grey,
-
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_rounded, size: 30),
@@ -61,16 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
               });
             },
           ),
-
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {},
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        
-      ),
-      backgroundColor: kdark,
-      child: Icon(Icons.add, color: klgihtgrey, size: 35,),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        backgroundColor: kdark,
+        child: Icon(
+          Icons.add,
+          color: klgihtgrey,
+          size: 35,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: _pages[activeIndex],
@@ -116,25 +120,33 @@ AppBar _buildAppBar() {
           ),
           onPressed: () {},
         ),
-        
-      ]
-
-      );
+      ]);
 }
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.only(right:8.0, left: 8.0, top: 20.0),
+        const Padding(
+          padding:
+              EdgeInsets.only(right: 8.0, left: 8.0, top: 20.0, bottom: 10.0),
           child: GoPremium(),
         ),
+        Container(
+          padding: const EdgeInsets.all(15),
+          child: Text(
+            'Tasks',
+            style: TextStyle(
+                color: Colors.grey.shade600,
+                fontSize: 26,
+                fontWeight: FontWeight.w500),
+          ),
+        ),
+        Expanded(child: Tasks())
       ],
     );
   }
