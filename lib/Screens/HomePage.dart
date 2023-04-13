@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tms/Screens/MenuPage.dart';
 import 'package:tms/modals/Task_modal.dart';
 import 'package:tms/widgets/constant.dart';
 import 'package:tms/widgets/tasks.dart';
@@ -22,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(context),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(
@@ -82,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-AppBar _buildAppBar() {
+AppBar _buildAppBar(BuildContext context) {
   return AppBar(
       backgroundColor: kwhite,
       elevation: 0,
@@ -118,7 +119,12 @@ AppBar _buildAppBar() {
             color: Colors.grey.shade600,
             size: 35,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context as BuildContext,
+                MaterialPageRoute(
+                    builder: (context) => menuPage()));
+          },
         ),
       ]);
 }
