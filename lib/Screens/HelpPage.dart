@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tms/Screens/MenuPage.dart';
 import 'package:tms/screens/privacySecurity.dart';
 import 'package:tms/components/upper_header.dart';
-import 'package:tms/components/customText.dart';
+
 
 class HelpPage extends StatelessWidget {
   const HelpPage({super.key});

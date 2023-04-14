@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tms/Screens/ContactPage.dart';
 import 'package:tms/Screens/HelpPage.dart';
 import 'package:tms/Screens/HomePage.dart';
 import 'package:tms/Screens/Settings.dart';
@@ -49,10 +50,20 @@ class _menuPageState extends State<menuPage> {
               SizedBox(
                 height: he * 0.13,
               ),
-              const Text(
-                'Contact Us',
-                style: TextStyle(
-                  fontSize: 30,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ContactUs(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Contact Us',
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
                 ),
               ),
               SizedBox(
